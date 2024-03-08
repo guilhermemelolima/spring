@@ -29,6 +29,10 @@ public class ClassificaIdade {
 		try {
 			
 			int idade = Integer.parseInt(num);
+			
+			if (idade < 0) {
+				throw new NumberFormatException();
+			}
 				
 			if (idade < 13) {
 				return "Criança";
@@ -40,8 +44,8 @@ public class ClassificaIdade {
 				return "Idoso";
 			}
 			
-		}catch (Exception e){
-			return "Erro: " + e;
+		}catch (NumberFormatException e){
+			return "Idade Inválida" + "\nErro: " + e;
 		}
 		
 		return null;
